@@ -54,6 +54,8 @@ public final class FlutterCompassPlugin implements StreamHandler {
     private SensorEventListener createSensorEventListener(final EventSink events) {
         return new SensorEventListener() {
             public void onAccuracyChanged(Sensor sensor, int accuracy) {
+                double change = 1000+accuracy;
+                events.success(change);
             }
 
             public void onSensorChanged(SensorEvent event) {
